@@ -8,6 +8,7 @@ import CodeBlocks from '../Components/CodeBlocks'
 import LearningLanguageSection from '../Components/LearningLanguageSection'
 import TimelineSection from '../Components/TimelineSection'
 import InstructorSection from '../Components/InstructorSection'
+import Footer from '../Components/common/Footer'
 
 function Home() {
   return (
@@ -187,10 +188,9 @@ function Home() {
         
       </div>
 
-      {/* Section 4 */}
-
-
-      {/* Section 5 */}
+      {/* Footer */}
+      
+      <Footer />
 
     </div>
   )
