@@ -38,12 +38,13 @@ const timeline = [
 function TimelineSection() {
     return (
         <div>
-            <div className='flex flex-row items-center gap-15'>
+            <div className='flex flex-col lg:items-center lg:flex-row gap-15'>
 
-                <div className='w-[45%] flex flex-col gap-5'>
+                <div className='lg:w-[45%] flex flex-col gap-5'>
                     {
                         timeline.map((element, id,index) => (
                             <div key={index} className='flex flex-row gap-6'>
+                                <div class="hidden lg:block h-14 border-dotted border-r border-richblack-100 bg-richblack-400/0 w-[26px]"></div>
                                 
                                 <div className='w-[50px] h-[50px] bg-white  flex items-center justify-center rounded-3xl '>
                                     <img src={element.logo} alt='TimelineLogo'  />

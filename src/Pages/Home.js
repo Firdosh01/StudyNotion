@@ -9,6 +9,7 @@ import LearningLanguageSection from '../Components/LearningLanguageSection'
 import TimelineSection from '../Components/TimelineSection'
 import InstructorSection from '../Components/InstructorSection'
 import Footer from '../Components/common/Footer'
+import ExploreMore from '../Components/ExploreMore'
 
 function Home() {
   return (
@@ -29,12 +30,12 @@ function Home() {
 
         </Link>
 
-        <div className='text-4xl font-semibold text-center mt-7'>
+        <div className='text-4xl font-semibold lg:text-center mt-7'>
           Empower Your Future with
           <HighlightText text={"Coding Skills"} />
         </div>
 
-        <div className='mt-4 w-[90%] text-center text-base font-bold text-richblack-300'>
+        <div className='mt-4 lg:w-[90%] lg:text-center text-base font-bold text-richblack-300'>
         With our online coding courses, you can learn at your own pace, from anywhere in the world, and get access to a wealth of resources, including hands-on projects, quizzes, and personalized feedback from instructors. 
         </div>
 
@@ -104,7 +105,7 @@ function Home() {
             }
             ctabtn1={
               {
-                btnText: "try it yourself",
+                btnText: "Continue Lesson",
                 linkto: "/signup",
                 active: true,
               }
@@ -121,6 +122,7 @@ function Home() {
           />
         </div>
         
+        <ExploreMore />
       </div>
 
       {/* Section 2 */}
@@ -150,13 +152,13 @@ function Home() {
         
         <div className='flex flex-col items-center justify-between w-11/12 mx-auto max-w-maxContent gap-7'>
           
-          <div className='flex flex-row gap-5 mb-10 mt-[95px]'>
-            <div className='text-4xl font-semibold w-[45%]'>
+          <div className='flex lg:flex-row gap-5 mb-10 mt-[95px] flex-col'>
+            <div className='text-4xl font-semibold lg:w-[45%]'>
             Get the skills you need for a
             <HighlightText text={"job that is in demand"} />
             </div>
 
-            <div className='flex flex-col gap-10 w-[40%] items-start'>
+            <div className='flex flex-col gap-10 lg:w-[40%] items-start '>
             <div className='text-[16px]'>
             The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
             </div>

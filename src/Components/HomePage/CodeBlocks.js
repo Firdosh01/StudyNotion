@@ -1,6 +1,6 @@
 import React from 'react'
 import {FaArrowRight} from 'react-icons/fa'
-import HighlightText from '../Components/HighlightText'
+import HighlightText from '../Components/HomePage/HighlightText'
 import CTAButton from '../Components/Button'
 import { TypeAnimation } from 'react-type-animation'
 
@@ -34,7 +34,7 @@ function CodeBlocks({position, heading, subheading, ctabtn1, ctabtn2,
 
       {/* Section 2 */}
 
-      <div className='h-fit flex flex-row text-10[px] w-[100%] py-4 lg:w-[500px] code-border'>
+      <div className='h-fit flex flex-row text-10[px] w-[100%] py-4 lg:w-[500px]'>
         {/* Bg- Gradient */}
 
 

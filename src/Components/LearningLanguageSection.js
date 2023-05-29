@@ -11,20 +11,20 @@ function LearningLanguageSection() {
     <div className='mt-[130px] mb-32'>
       <div className='flex flex-col items-center gap-5'>
 
-        <div className='text-4xl font-semibold text-center'>
+        <div className='text-4xl font-semibold lg:text-center'>
           Your Swiss Knife for
           <HighlightText text={" Learning any language"} />
         </div>
         
-        <div className='mx-auto text-base font-medium text-center text-richblack-600 w-[70%]'>
+        <div className='mx-auto text-base font-medium lg:text-center text-richblack-600 lg:w-[70%]'>
         Using spin making learning multiple languages easy. with 20+ languages realistic voice-over,
          progress tracking, custom schedule and more.  
         </div>
 
-        <div className='flex flex-row items-center justify-center mt-5'>
-          <img src={know_your_progress} alt="KnowYourProgressImage" className='object-contain -mr-32' />
-          <img src={compare_with_others} alt="compareWithOthersImage" className='object-contain'  />
-          <img src= {plan_your_lesson} alt="planYourLesson" className='object-contain -ml-36' />
+        <div className='flex flex-col items-center mt-10 lg:flex-row lg:justify-center'>
+          <img src={know_your_progress} alt="KnowYourProgressImage" className='object-contain lg:-mr-32' />
+          <img src={compare_with_others} alt="compareWithOthersImage" className='object-contain mt-[-70px]'  />
+          <img src= {plan_your_lesson} alt="planYourLesson" className='object-contain lg:-ml-36 mt-[-120px]' />
         </div>
 
         <div className='w-fit'>
