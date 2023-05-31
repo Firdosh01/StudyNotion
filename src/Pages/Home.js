@@ -1,15 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaArrowRight } from 'react-icons/fa'
-import HighlightText from '../Components/HighlightText'
-import CTAButton from '../Components/Button'
+import HighlightText from '../components/HighlightText'
+import CTAButton from '../components/Button'
 import Banner from '../assets/Images/banner.mp4'
-import CodeBlocks from '../Components/CodeBlocks'
-import LearningLanguageSection from '../Components/LearningLanguageSection'
-import TimelineSection from '../Components/TimelineSection'
-import InstructorSection from '../Components/InstructorSection'
-import Footer from '../Components/common/Footer'
-import ExploreMore from '../Components/ExploreMore'
+import CodeBlocks from '../components/CodeBlocks'
+import LearningLanguageSection from '../components/LearningLanguageSection'
+import TimelineSection from '../components/TimelineSection'
+import InstructorSection from '../components/InstructorSection'
+import Footer from '../components/common/Footer'
+import ExploreMore from '../components/ExploreMore'
+
+// import React from 'react'
+// import {FaArrowRight} from "react-icons/fa"
+// import {Link} from "react-router-dom"
+// import HighlightText from '../components/core/HomePage/HighlightText'
+
+// import CTAButton from "../components/core/HomePage/Button"
+// import Banner from "../assets/Images/banner.mp4"
+// import CodeBlocks from "../components/core/HomePage/CodeBlocks"
+// import TimelineSection from '../components/core/HomePage/TimelineSection'
+// import LearningLanguageSection from '../components/core/HomePage/LearningLanguageSection'
+// import InstructorSection from '../components/core/HomePage/InstructorSection'
+// import Footer from '../components/common/Footer'
+// import ExploreMore from '../components/core/HomePage/ExploreMore'
+
 
 function Home() {
   return (

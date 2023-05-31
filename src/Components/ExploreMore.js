@@ -2,6 +2,9 @@ import React, {useState} from 'react'
 import {HomePageExplore} from '../data/homepage-explore'
 import HighlightText from './HighlightText';
 
+
+
+
 const tabsName = [
     "Free",
     "New to coding",
