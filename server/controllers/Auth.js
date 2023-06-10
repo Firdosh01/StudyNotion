@@ -1,12 +1,14 @@
+const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const OTP = require("../models/OTP");
-const otpGenerator = require("otp-generator");
-const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const otpGenerator = require("otp-generator");
+const mailSender = require("../utils/mailSender");
+const { passwordUpdated } = require("../mail/templates/passwordUpdate");
+const Profile = require("../models/Profile");
 require("dotenv").config();
 
-
-exports.sendOTP = async (req, res) => {
+exports.sendotp = async (req, res) => {
 
     try {
 
@@ -241,16 +243,14 @@ exports.login = async (req, res) => {
 
 // Controller for Changing Password
 exports.changePassword = async (req, res) => {
-    try{
+	try {
+		// Get user data from req.user
+		const userDetails = await User.findById(req.user.id);
 
-        //Get user data from req.user
-        const userDetails = await User.findById(req.user.id);
+		// Get old password, new password, and confirm new password from req.body
+		const { oldPassword, newPassword, confirmNewPassword } = req.body;
 
-        // Get old password, new password and confirm new password
-        const {oldpassword, newpassword, confirmNewPassword} = req.body;
-
-
-        // Validate old password
+		// Validate old password
 		const isPasswordMatch = await bcrypt.compare(
 			oldPassword,
 			userDetails.password

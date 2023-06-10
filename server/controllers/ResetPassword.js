@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const mailSender = require("../utils/mailSender");
 const bcrypt = require("bcrypt")
+const crypto = require("crypto");
 
 // resetPasswordToken
 exports.resetPasswordToken = async (req, res) => {
@@ -13,51 +14,50 @@ exports.resetPasswordToken = async (req, res) => {
         if (!user) {
             return res.json({
                 success: false,
-                message: 'Your Email is not ragistered with us'
+                message: `This Email: ${email} is not Registered With Us Enter a Valid Email `,
             });
         }
-        // generate token
-        const token = crypto.randomUUID();
-        //update user by adding token and exprition time
+        const token = crypto.randomBytes(20).toString("hex");
 
-        const updatedDetails = await User.findOneAndUpdate(
+		const updatedDetails = await User.findOneAndUpdate(
+			{ email: email },
+			{
+				token: token,
+				resetPasswordExpires: Date.now() + 3600000,
+			},
+			{ new: true }
+		);
+		console.log("DETAILS", updatedDetails);
 
-            { email: email },
-            {
-                token: token,
-                resetPasswordExpires: Date.now() + 5 * 60 * 1000,
-            },
-            { new: true }
-        );
+		const url = `http://localhost:3000/update-password/${token}`;
 
-        // create url
-        const url = `http://localhost:3000/update-password/${token}`
-        // send mail containing the url
-        await mailSender(email,
-            "Password Reset Link",
-            `Password Reset Link ${url}`
-        );
+		await mailSender(
+			email,
+			"Password Reset",
+			`Your Link for email verification is ${url}. Please click this url to reset your password.`
+		);
+
 
         //return response
 
-        return res.json({
-            success: true,
-            message: 'Email sent successfully, please check email and change pwd'
-        });
+		res.json({
+			success: true,
+			message:
+				"Email Sent Successfully, Please Check Your Email to Continue Further",
+		});
     }
     catch (error) {
         console.log(error);
         return res.status(500).json({
+            error: error.message,
             success:false,
-            message: 'Something went wrong while sending reset pwd mail'
+			message: `Some Error in Sending the Reset Message`,
         })
     }
 }
 
 
 //resetPassword
-
-
 exports.resetPassword = async (req, res) => {
 	try {
 		const { password, confirmPassword, token } = req.body;

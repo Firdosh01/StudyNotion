@@ -8,7 +8,7 @@ const profleSchema = new mongoose.Schema({
     },
     dateOfBirth: {
         type:String,
-        trim:true,
+        // trim:true,
     },
     about: {
         type:String,

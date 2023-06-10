@@ -40,7 +40,6 @@ exports.capturePayment = async (req, res) => {
 
     }
     catch (error) {
-
         return res.status(500).json({
             success: false,
             message: error.message,
@@ -52,7 +51,7 @@ exports.capturePayment = async (req, res) => {
     const currency = "INR";
 
     const options = {
-        amout: amout * 100,
+        amount: amout * 100,
         currency,
         receipt: Math.random(Date.now()).toString(),
         notes: {

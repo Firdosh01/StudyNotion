@@ -1,58 +1,49 @@
-const Tags = require("../models/tags")
+const Category = require("../models/Category");
 
 exports.createCategory = async (req, res) => {
-    try{
-        // fetch data
-        const {name, description} = req.body;
+	try {
+		const { name, description } = req.body;
+		if (!name) {
+			return res
+				.status(400)
+				.json({ success: false, message: "All fields are required" });
+		}
+		const CategorysDetails = await Category.create({
+			name: name,
+			description: description,
+		});
+		console.log(CategorysDetails);
+		return res.status(200).json({
+			success: true,
+			message: "Categorys Created Successfully",
+		});
+	} catch (error) {
+		return res.status(500).json({
+			success: true,
+			message: error.message,
+		});
+	}
+};
 
-        //validation
-        if(!name || !description) {
-            return res.status(400).json({
-                success: false,
-                message: 'All fields are required',
-            })
-        }
-
-        // create entry in DB
-        const CategorysDetails = await Tag.create({
-            name:name,
-            description:description,
-        });
-        console.log(CategorysDetails);
-
-        // return response 
-        return  res.status(200).json({
-            success:true,
-            message: "Tag created Successfully",
-        });
-    }
-    catch(error) {
-        return res.status(500).json({
-            success:false,
-            message:error.message,
-        })
-    }
-}
-
-// getAlltags handler function 
 
 exports.showAllCategories = async (req, res) => {
-    try {
-        const allTags = await Tag.find({}, {name: true, description:true});
-        res.status(200).json({
-            success: true,
-            message: "All tags returned successfully",
+	try {
+		const allCategorys = await Category.find(
+			{},
+			{ name: true, description: true }
+		);
+		res.status(200).json({
+			success: true,
+			data: allCategorys,
+		});
+	} catch (error) {
+		return res.status(500).json({
+			success: false,
+			message: error.message,
+		});
+	}
+};
 
-            allTags,
-        })
-    }
-    catch(error) {
-        return res.status(500).json({
-            success:false,
-            message:error.message,
-        })
-    }
-}
 
 
 
