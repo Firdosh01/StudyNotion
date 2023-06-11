@@ -13,6 +13,7 @@ exports.updateProfile = async (req, res) => {
 
         //Update the profile fields 
         profile.dateOfBirth = dateOfBirth;
+        profile.gender = gender;
         profile.about = about;
         profile.contactNumber = contactNumber;
 
