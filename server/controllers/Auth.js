@@ -13,13 +13,11 @@ exports.sendotp = async (req, res) => {
     try {
 
       // Send OTP For Email Verification
-
         const { email } = req.body;
 
         const checkUserPresent = await User.findOne({ email });
 
         // if user already exist then return a response
-
         if (checkUserPresent) {
             return res.status(401).json({
                 success: false,
@@ -28,7 +26,6 @@ exports.sendotp = async (req, res) => {
         }
 
         // generator otp
-
         var otp = otpGenerator.generate(6, {
             upperCaseAlphabets: false,
             lowerCaseAlphabets: false,
@@ -37,7 +34,6 @@ exports.sendotp = async (req, res) => {
 
 
         // check uniqe otp or not
-        
         let result = await OTP.findOne({ otp: otp });
 		console.log("Result is Generate OTP Func");
 		console.log("OTP", otp);
