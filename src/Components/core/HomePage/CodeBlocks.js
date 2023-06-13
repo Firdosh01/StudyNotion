@@ -1,9 +1,8 @@
 import React from 'react'
 import {FaArrowRight} from 'react-icons/fa'
-import HighlightText from '../components/HighlightText'
-import CTAButton from '../components/Button'
+import HighlightText from './HighlightText'
+import CTAButton from "../HomePage/Button"
 import { TypeAnimation } from 'react-type-animation'
-
 
 function CodeBlocks({position, heading, subheading, ctabtn1, ctabtn2,  
     codeblock, backgroundGradient, codeColor}) {

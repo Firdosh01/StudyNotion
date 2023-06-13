@@ -1,8 +1,7 @@
 import React, {useState} from 'react'
-import {HomePageExplore} from '../data/homepage-explore'
+import {HomePageExplore} from '../../../data/homepage-explore'
 import HighlightText from './HighlightText';
-
-
+import CourseCard from './CourseCard.js';
 
 
 const tabsName = [
@@ -52,10 +51,10 @@ function ExploreMore() {
         }
      </div>
 
-     <div className='lg:h-[150px]'></div>
+     <div className='lg:h-[200px] hidden lg:block '></div>
     {/* course card ka group  */}
     
-    {/* <div className='absolute flex flex-row justify-between w-full gap-10'>
+    <div className='flex flex-row flex-wrap justify-center w-full gap-10 lg:justify-between lg-gap-0 lg:absolute lg:bottom-[0] lg-left-[50%] lg:translate-x-[-20%] lg:translate-y-[50%] text-black lg:mb-0 mb-7 lg:px-0 px-3'>
         {
             courses.map((element,index) => (
                 <CourseCard
@@ -65,7 +64,7 @@ function ExploreMore() {
                 setCurrentCard = {setCurrentCard} />
             ))
         }
-    </div> */}
+    </div>
     </div>
   )
 }

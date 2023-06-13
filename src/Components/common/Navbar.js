@@ -5,7 +5,6 @@ import {NavbarLinks} from '../../data/navbar-links'
 import { useLocation} from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
-import ProfileDropDown from '../core/ProfileDropDown'
 
 
 function Navbar() {
@@ -95,7 +94,7 @@ function Navbar() {
                 )
             }    
             {
-                token !== null && <ProfileDropDown />
+                // token !== null && <ProfileDropDown />
             }
                   
         </div>
