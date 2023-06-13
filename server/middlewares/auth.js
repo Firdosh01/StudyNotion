@@ -90,7 +90,7 @@ exports.isInstructor = async (req, res, next) => {
 
 exports.isAdmin = async (req, res, next) => {
     try{
-        console.log("Printing AccountType ", req.user.accountType);
+
         if(req.user.accountType !== "Admin"){
             return res.status(401).json({
                 success:false,
@@ -98,6 +98,7 @@ exports.isAdmin = async (req, res, next) => {
             });
         }
         next();
+
     }
     catch(error) {
         return res.status(500).json({

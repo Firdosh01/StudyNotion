@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import {HomePageExplore} from '../../../data/homepage-explore'
+import { HomePageExplore } from "../../../data/homepage-explore";
 import HighlightText from './HighlightText';
-import CourseCard from './CourseCard.js';
+import CourseCard from './CourseCard';
 
 
 const tabsName = [
@@ -29,7 +29,7 @@ function ExploreMore() {
   return (
     <div>
       
-      <div className='text-4xl font-semibold text-center'>
+      <div className='my-10 text-4xl font-semibold text-center'>
       Unlock the
       <HighlightText text={"Power of Code"} />
       </div>
@@ -43,7 +43,8 @@ function ExploreMore() {
             tabsName.map(( element,index) => (
                 <div className={`text-[16px] flex flex-row items-center gap-2 
                 ${currentTab === element ? "bg-richblack-900 text-richblack-5 font-medium" : "text-richblack-200"}  
-                rounded-full transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-richblack-5 px-7 py-2`} key={index} onClick={() => setMyCards(element)}>
+                rounded-full transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-richblack-5 px-7 py-2`} 
+                key={index} onClick={() => setMyCards(element)}>
                     {element}
 
                 </div>

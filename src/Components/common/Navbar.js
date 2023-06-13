@@ -9,6 +9,7 @@ import {AiOutlineShoppingCart} from 'react-icons/ai'
 
 function Navbar() {
     
+    console.log("Printing base url: ",process.env.REACT_APP_BASE_URL);
     const {token} = useSelector( (state) => state.auth)
     const {user} = useSelector( (state) => state.profile)
     const {totalItems} = useSelector( (state) => state.cart)

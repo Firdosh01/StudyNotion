@@ -6,6 +6,7 @@ import plan_your_lesson from "../../../assets/Images/Plan_your_lessons.png"
 import CTAButton from "../HomePage/Button"
 
 
+
 function LearningLanguageSection() {
   return (
     <div className='mt-[130px] mb-32'>

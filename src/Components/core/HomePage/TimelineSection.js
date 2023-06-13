@@ -6,7 +6,6 @@ import Logo4 from "../../../assets/TimeLineLogo/Logo4.svg"
 import timelineImage from "../../../assets/Images/TimelineImage.png"
 
 
-
 const timeline = [
     {
         id: 1,

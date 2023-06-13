@@ -7,6 +7,20 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "cloudinary": "^1.37.1",
+    "concurrently": "^8.2.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express-fileupload": "^1.4.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.4",
+    "nodemailer": "^6.9.3",
+    "nodemon": "^2.0.22",
+    "otp-generator": "^4.0.1",
+    "razorpay": "^2.8.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
@@ -16,13 +30,16 @@
     "react-router-dom": "^6.11.2",
     "react-scripts": "^5.0.1",
     "react-type-animation": "^3.0.1",
+    "route": "^0.2.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "cd server && npm run dev",
+    "dev": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm start\" \"npm run server\""
   },
   "eslintConfig": {
     "extends": [
