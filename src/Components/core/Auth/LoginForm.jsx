@@ -32,7 +32,7 @@ function LoginForm() {
   return (
     <form
       onSubmit={handleOnSubmit}
-      className="mt-6 flex w-full flex-col gap-y-4"
+      className="flex flex-col w-full mt-6 gap-y-4"
     >
       <label className="w-full">
         <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
@@ -78,7 +78,7 @@ function LoginForm() {
           )}
         </span>
         <Link to="/forgot-password">
-          <p className="mt-1 ml-auto max-w-max text-xs text-blue-100">
+          <p className="mt-1 ml-auto text-xs text-blue-100 max-w-max">
             Forgot Password
           </p>
         </Link>
