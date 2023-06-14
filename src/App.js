@@ -5,6 +5,7 @@ import Navbar from './Components/common/Navbar';
 import OpenRoute from "./Components/core/Auth/OpenRoute"
 import Login from "./Pages/Login"
 import Signup from "./Pages/Signup"
+import Error from './Pages/Error';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             </OpenRoute>
           }
         />
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );
