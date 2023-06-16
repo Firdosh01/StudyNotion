@@ -7,6 +7,8 @@ import Login from "./Pages/Login"
 import Signup from "./Pages/Signup"
 import Error from './Pages/Error';
 import About from './Pages/About';
+import ForgotPassword from './Pages/ForgotPassword';
+import UpdatePassword from './Pages/UpdatePassword';
 
 function App() {
   return (
@@ -28,6 +30,24 @@ function App() {
           element={
             <OpenRoute>
               <Login />
+            </OpenRoute>
+          }
+        />
+
+        <Route
+          path="forgot-password"
+          element={
+            <OpenRoute>
+              <ForgotPassword />
+            </OpenRoute>
+          }
+        />
+
+        <Route
+          path="update-password/:id"
+          element={
+            <OpenRoute>
+              <UpdatePassword />
             </OpenRoute>
           }
         />
