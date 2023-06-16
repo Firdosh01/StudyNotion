@@ -41,7 +41,7 @@ function UpdatePassword() {
             {
                 loading ?
                     (
-                        <div>Loading...</div>
+                        <div className="spinner"></div>
                     ) :
                     (
                         <div>

@@ -19,7 +19,7 @@ function ForgotPassword() {
         <div className='grid min-h-[calc(100vh-3.5rem)] place-items-center'>
             {
                 loading ? (
-                    <div>Loading.....</div>
+                    <div className="spinner"></div>
                 ) :
                 (
                     <div className='max-w-[500px] p-4 lg:p-8'>
