@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { HomePageExplore } from "../../../data/homepage-explore";
-import HighlightText from './HighlightText';
+import HighlightText from '../../common/HighlightText';
 import CourseCard from './CourseCard';
 
 

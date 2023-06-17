@@ -1,21 +1,8 @@
-// import React from 'react'
-// import { Link } from 'react-router-dom'
-// import { FaArrowRight } from 'react-icons/fa'
-// import HighlightText from '../Components/HighlightText'
-// import CTAButton from '../Components/Button'
-// import Banner from '../assets/Images/banner.mp4'
-// import CodeBlocks from '../Components/CodeBlocks'
-// import LearningLanguageSection from '../Components/LearningLanguageSection'
-// import TimelineSection from '../Components/TimelineSection'
-// import InstructorSection from '../Components/InstructorSection'
-// import Footer from '../Components/common/Footer'
-// import ExploreMore from '../components/ExploreMore'
-
 import React from 'react'
 import {FaArrowRight} from "react-icons/fa"
 import {Link} from "react-router-dom"
-import HighlightText from '../Components/core/HomePage/HighlightText'
-import CTAButton from "../Components/core/HomePage/Button"
+import HighlightText from '../Components/common/HighlightText'
+import CTAButton from "../Components/common/Button"
 import Banner from "../assets/Images/banner.mp4"
 import CodeBlocks from "../Components/core/HomePage/CodeBlocks"
 import TimelineSection from '../Components/core/HomePage/TimelineSection'
