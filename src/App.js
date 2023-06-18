@@ -9,6 +9,7 @@ import Error from './Pages/Error';
 import About from './Pages/About';
 import ForgotPassword from './Pages/ForgotPassword';
 import UpdatePassword from './Pages/UpdatePassword';
+import Contact from './Pages/Contact';
 
 function App() {
   return (
@@ -60,6 +61,8 @@ function App() {
             </OpenRoute>
           }
         />
+
+        <Route path='/contact' element={<Contact />} />
 
         <Route path="*" element={<Error />} />
       </Routes>
