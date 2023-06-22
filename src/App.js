@@ -9,6 +9,7 @@ import Error from './Pages/Error';
 import About from './Pages/About';
 import ForgotPassword from './Pages/ForgotPassword';
 import UpdatePassword from './Pages/UpdatePassword';
+import VerifyEmail from './Pages/VerifyEmail'
 import Contact from './Pages/Contact';
 
 function App() {
@@ -49,6 +50,15 @@ function App() {
           element={
             <OpenRoute>
               <UpdatePassword />
+            </OpenRoute>
+          }
+        />
+
+        <Route
+          path="verify-email"
+          element={
+            <OpenRoute>
+              <VerifyEmail />
             </OpenRoute>
           }
         />
