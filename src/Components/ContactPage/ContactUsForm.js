@@ -49,7 +49,7 @@ const ContactUsForm = () => {
     >
       <div className="flex flex-col gap-5 lg:flex-row">
         <div className="flex flex-col gap-2 lg:w-[48%]">
-          <label htmlFor="firstname" className="lable-style">
+          <label htmlFor="firstname" className="text-white lable-style">
             First Name
           </label>
           <input
@@ -57,7 +57,10 @@ const ContactUsForm = () => {
             name="firstname"
             id="firstname"
             placeholder="Enter first name"
-            className="form-style"
+            style={{
+              boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+            }}
+            className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 outline-none"
             {...register("firstname", { required: true })}
           />
           {errors.firstname && (
@@ -67,7 +70,7 @@ const ContactUsForm = () => {
           )}
         </div>
         <div className="flex flex-col gap-2 lg:w-[48%]">
-          <label htmlFor="lastname" className="lable-style">
+          <label htmlFor="lastname" className="text-white lable-style">
             Last Name
           </label>
           <input
@@ -75,14 +78,17 @@ const ContactUsForm = () => {
             name="lastname"
             id="lastname"
             placeholder="Enter last name"
-            className="form-style"
+            style={{
+              boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+            }}
+            className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 outline-none"
             {...register("lastname")}
           />
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="email" className="lable-style">
+        <label htmlFor="email" className="text-white lable-style">
           Email Address
         </label>
         <input
@@ -90,7 +96,10 @@ const ContactUsForm = () => {
           name="email"
           id="email"
           placeholder="Enter email address"
-          className="form-style"
+          style={{
+            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+          }}
+          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 outline-none"
           {...register("email", { required: true })}
         />
         {errors.email && (
@@ -101,7 +110,7 @@ const ContactUsForm = () => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="phonenumber" className="lable-style">
+        <label htmlFor="phonenumber" className="text-white lable-style">
           Phone Number
         </label>
 
@@ -112,7 +121,10 @@ const ContactUsForm = () => {
               name="firstname"
               id="firstname"
               placeholder="Enter first name"
-              className="form-style"
+              style={{
+                boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+              }}
+              className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 outline-none"
               {...register("countrycode", { required: true })}
             >
               {CountryCode.map((ele, i) => {
@@ -130,7 +142,10 @@ const ContactUsForm = () => {
               name="phonenumber"
               id="phonenumber"
               placeholder="12345 67890"
-              className="form-style"
+              style={{
+                boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+              }}
+              className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 outline-none"
               {...register("phoneNo", {
                 required: {
                   value: true,
@@ -150,7 +165,7 @@ const ContactUsForm = () => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="message" className="lable-style">
+        <label htmlFor="message" className="text-white lable-style">
           Message
         </label>
         <textarea
@@ -159,7 +174,11 @@ const ContactUsForm = () => {
           cols="30"
           rows="7"
           placeholder="Enter your message here"
-          className="form-style"
+          style={{
+            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+          }}
+          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 outline-none"
+          
           {...register("message", { required: true })}
         />
         {errors.message && (
