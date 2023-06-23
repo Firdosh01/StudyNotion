@@ -11,6 +11,7 @@ import ForgotPassword from './Pages/ForgotPassword';
 import UpdatePassword from './Pages/UpdatePassword';
 import VerifyEmail from './Pages/VerifyEmail'
 import Contact from './Pages/Contact';
+import MyProfile from './Components/core/Dashboard/MyProfile';
 
 function App() {
   return (
