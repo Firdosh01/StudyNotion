@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { sidebarLinks } from '../../../data/dashboard-links'
 import { logout } from '../../../services/operations/authAPI'
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,7 +19,7 @@ function Sidebar() {
 
   if (profileLoading || authLoading) {
     return (
-      <div className='mt-10'>
+      <div className='className="grid h-[calc(100vh-3.5rem)] min-w-[220px] items-center border-r-[1px] border-r-richblack-700 bg-richblack-800"'>
         Loading...
       </div>
     )
@@ -28,7 +28,7 @@ function Sidebar() {
 
   return (
     <div className='text-white'>
-      <div className='flex min-w-[222px] flex-col border-r-[1px] border-r-richblack-700 h-[calc[100vh-3.5rem)] bg-richblack-800 py-10'>
+      <div className='flex min-w-[220px] flex-col border-r-[1px] border-r-richblack-700 h-[calc(100vh-3.5rem)] bg-richblack-800 py-10'>
 
         <div className='flex flex-col'>
           {

@@ -12,6 +12,8 @@ import UpdatePassword from './Pages/UpdatePassword';
 import VerifyEmail from './Pages/VerifyEmail'
 import Contact from './Pages/Contact';
 import MyProfile from './Components/core/Dashboard/MyProfile';
+import Dashboard from './Pages/Dashboard';
+import PrivateRoute from './Components/core/Auth/PrivateRoute'
 
 function App() {
   return (
@@ -68,7 +70,16 @@ function App() {
 
         <Route path='/contact' element={<Contact />} />
 
+        <Route
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        } 
+        >
+
         <Route path='dashboard/my-profile' element={<MyProfile />} />
+        </Route>
 
         <Route path="*" element={<Error />} />
       </Routes>
