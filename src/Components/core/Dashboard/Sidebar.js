@@ -27,7 +27,7 @@ function Sidebar() {
 
 
   return (
-    <div className='text-white'>
+    <div className='text-richblack-300'>
       <div className='flex min-w-[220px] flex-col border-r-[1px] border-r-richblack-700 h-[calc(100vh-3.5rem)] bg-richblack-800 py-10'>
 
         <div className='flex flex-col'>
@@ -58,7 +58,7 @@ function Sidebar() {
               btn1Handler: () => dispatch(logout(navigate)),
               btn2Handler: () => setConfirmationModal(null),
             })}
-            className='text-sm font-medium text-richblack-300'
+            className='px-8 py-2 text-sm font-medium text-richblack-300'
           >
 
             <div className='flex items-center gap-x-2'>
