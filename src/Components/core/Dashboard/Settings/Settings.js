@@ -1,6 +1,7 @@
 import React from 'react'
 import ChangeProfilePicture from './ChangeProfilePicture'
 import DeleteAccount from './DeleteAccount'
+import EditProfile from './EditProfile'
 
 function Settings() {
   return (
@@ -10,6 +11,7 @@ function Settings() {
     </h1>
     {/* Change Profile Picture  */}
     <ChangeProfilePicture />
+    <EditProfile />
 
     {/* Delete Account  */}
     <DeleteAccount />
