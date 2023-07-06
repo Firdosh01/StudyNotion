@@ -1,3 +1,4 @@
+const { Mongoose } = require("mongoose");
 const Category = require("../models/Category");
 
 exports.createCategory = async (req, res) => {
@@ -28,10 +29,7 @@ exports.createCategory = async (req, res) => {
 
 exports.showAllCategories = async (req, res) => {
 	try {
-		const allCategorys = await Category.find(
-			{},
-			{ name: true, description: true }
-		);
+		const allCategorys = await Category.find({});
 		res.status(200).json({
 			success: true,
 			data: allCategorys,
@@ -43,7 +41,6 @@ exports.showAllCategories = async (req, res) => {
 		});
 	}
 };
-
 
 
 

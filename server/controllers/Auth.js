@@ -62,7 +62,7 @@ exports.sendotp = async (req, res) => {
         console.log(error)
         return res.status(500).json({
             success:false,
-            message:error.message,
+            message:error.message
         })
 
     }
@@ -101,8 +101,7 @@ exports.signup = async (req, res) => {
 		if (password !== confirmPassword) {
 			return res.status(400).json({
 				success: false,
-				message:
-					"Password and Confirm Password do not match. Please try again.",
+				message: "Password and Confirm Password do not match. Please try again.",
 			});
 		}
 
@@ -155,7 +154,9 @@ exports.signup = async (req, res) => {
 			accountType: accountType,
 			approved: approved,
 			additionalDetails: profileDetails._id,
-			image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
+			// {image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,}
+			image: "",
+			
 		});
 
 		return res.status(200).json({
@@ -201,13 +202,14 @@ exports.login = async (req, res) => {
 
 		// Generate JWT token and Compare Password
 		if (await bcrypt.compare(password, user.password)) {
+			
 			const token = jwt.sign(
-				{ email: user.email, id: user._id, accountType: user.accountType },
+				{ email: user.email, id: user._id, role: user.role },
 				process.env.JWT_SECRET,
 				{
-					expiresIn: "24h",
+				  expiresIn: "24h",
 				}
-			);
+			  )
 
 			// Save token to user document in database
 			user.token = token;
