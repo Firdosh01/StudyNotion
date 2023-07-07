@@ -35,11 +35,11 @@ function CodeBlocks({position, heading, subheading, ctabtn1, ctabtn2,
 
       {/* Section 2 */}
 
-      <div className='h-fit flex flex-row text-10[px] w-[100%] py-4 lg:w-[500px] code-border'>
+      <div className='h-fit code-border flex flex-row py-3 text-[10px] sm:text-sm leading-[18px] sm:leading-6 relative w-[100%] lg:w-[470px]'>
         {/* Bg- Gradient */}
+        {backgroundGradient}
 
-
-        <div className='flex flex-col text-center lg:w-[10%] text-richblack-400 font-inter font-bold mr-2'>
+        <div className='flex flex-col text-center lg:w-[10%] text-richblack-400 font-inter font-bold mr-2 select-none'>
           <p>1</p>
           <p>2</p>
           <p>3</p>

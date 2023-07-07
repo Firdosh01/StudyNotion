@@ -51,7 +51,7 @@ function Home() {
           </CTAButton>
         </div>
 
-        <div className='mx-3 my-12 shadow-blue-200'>
+        <div className='mx-3 my-12 shadow-blue-200 shadow-[10px_-5px_50px_-5px] '>
           <video muted loop autoPlay>
             <source src={Banner} type='video/mp4' />
           </video>
@@ -88,6 +88,8 @@ function Home() {
             }
             codeblock={`<!DOCTYPE html>\n<html>\nhead><title>Example</title><linkrel="stylesheet"href="styles.css">\n/head>\nbody>\nh1><ahref="/">Header</a>\n/h1>\nnav><ahref="one/">One</a><ahref="two/">Two</\na><ahref="three/">Three</a>\n/nav>`}
             codeColor={"text-yellow-25"}
+            backgroundGradient={<div className="absolute codeblock1"></div>}
+            
           />
         </div>
 
@@ -120,6 +122,7 @@ function Home() {
             }
             codeblock={`<!DOCTYPE html>\n<html>\nhead><title>Example</title><linkrel="stylesheet"href="styles.css">\n/head>\nbody>\nh1><ahref="/">Header</a>\n/h1>\nnav><ahref="one/">One</a><ahref="two/">Two</\na><ahref="three/">Three</a>\n/nav>`}
             codeColor={"text-yellow-25"}
+            backgroundGradient={<div className="absolute codeblock2"></div>}
           />
         </div>
         
