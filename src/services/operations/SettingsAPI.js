@@ -22,7 +22,7 @@ export function updateDisplayPicture(token, formData) {
         formData,
         {
           "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
+          Authorization: `${token}`,
         }
       )
       console.log(
@@ -48,7 +48,7 @@ export function updateProfile(token, formData) {
     const toastId = toast.loading("Loading...")
     try {
       const response = await apiConnector("PUT", UPDATE_PROFILE_API, formData, {
-        Authorization: `Bearer ${token}`,
+        Authorization: `${token}`,
       })
       console.log("UPDATE_PROFILE_API API RESPONSE............", response)
 
@@ -94,7 +94,7 @@ export function deleteProfile(token, navigate) {
     const toastId = toast.loading("Loading...")
     try {
       const response = await apiConnector("DELETE", DELETE_PROFILE_API, null, {
-        Authorization: `Bearer ${token}`,
+        Authorization: `${token}`,
       })
       console.log("DELETE_PROFILE_API API RESPONSE............", response)
 
