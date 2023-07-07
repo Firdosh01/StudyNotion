@@ -2,6 +2,7 @@ import React from 'react'
 import ChangeProfilePicture from './ChangeProfilePicture'
 import DeleteAccount from './DeleteAccount'
 import EditProfile from './EditProfile'
+import ChangePassword from './ChangePassword'
 
 function Settings() {
   return (
@@ -12,6 +13,7 @@ function Settings() {
     {/* Change Profile Picture  */}
     <ChangeProfilePicture />
     <EditProfile />
+    <ChangePassword />
 
     {/* Delete Account  */}
     <DeleteAccount />

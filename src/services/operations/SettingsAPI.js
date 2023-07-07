@@ -74,7 +74,7 @@ export async function changePassword(token, formData) {
   const toastId = toast.loading("Loading...")
   try {
     const response = await apiConnector("POST", CHANGE_PASSWORD_API, formData, {
-      Authorization: `Bearer ${token}`,
+      Authorization: `${token}`,
     })
     console.log("CHANGE_PASSWORD_API API RESPONSE............", response)
 
