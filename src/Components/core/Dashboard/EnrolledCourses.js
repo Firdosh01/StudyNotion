@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { getUserEnrolledCourses } from '../../../../services/operations/profileAPI';
 import ProgressBar from '@ramonak/react-progress-bar';
+import { getUserEnrolledCourses } from '../../../services/operations/profileAPI';
 
 function EnrolledCourses() {
 
@@ -23,22 +23,24 @@ function EnrolledCourses() {
     }, []);
 
   return (
-    <div className='text-white'>
-        <div>Enrolled Courses</div>
+    <>
+        <div className='text-3xl text-richblack-50'>Enrolled Courses</div>
       {
         !enrolledCourses ?
         (
-            <div>
-                Loading...
+            <div className='grid min-h-[calc(100vh-3.5rem)] place-items-center'>
+                 <div className='spinner'></div>                
             </div>
         ) :
         !enrolledCourses.length ? 
         (
-            <p>You have not enrolled in any course yet</p>
+            <p className='grid h-[10vh] w-full place-content-center text-richblack-5'>
+                   You have not enrolled in any course yet
+            </p>
         ) :
         (
-            <div>
-                <div>
+            <div className='my-8 text-richblack-5'>
+                <div className='flex rounded-t-lg bg-richblack-500'>
                     <p>Course Name</p>
                     <p>Durations</p>
                     <p>Progress</p>
@@ -71,7 +73,7 @@ function EnrolledCourses() {
             </div>
         )
       }
-    </div>
+    </>
   )
 }
 
