@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaCheck } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
+import CourseInformationForm from './CourseInformation/CourseInformationForm'
 
 export default function RenderSteps() {
 
@@ -32,7 +33,8 @@ export default function RenderSteps() {
                        <button 
                        className={`grid cursor-default aspect-square w-[34px] place-items-center rounded-full border-[1px] 
                        ${step === item.id ? "bg-yellow-900 border-yellow-50 text-yellow-50"
-                        : "border-richblack-700 bg-richblack-800 text-richblack-300"} ${step > item.id && "bg-yellow-50 text-yellow-50"}`}>
+                        : "border-richblack-700 bg-richblack-800 text-richblack-300"} 
+                        ${step > item.id && "bg-yellow-50 text-yellow-50"}`}>
                             {
                                 step > item.id ? (<FaCheck className='font-bold text-richblack-900' />) 
                                 : (item.id)
@@ -72,9 +74,9 @@ export default function RenderSteps() {
             }
         </div>
       </div>
-      {step == 1 && {}}
-      {step == 2 && {}}
-      {step == 3 && {}}
+      {step === 1 && <CourseInformationForm />}
+      {step === 2 && {}}
+      {step === 3 && {}}
     </>
   )
 }
