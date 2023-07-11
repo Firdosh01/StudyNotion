@@ -25,6 +25,35 @@ export default function ChipInput( {
     register(name, { required: true, validate: (value) => value.length > 0 })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  useEffect(() => {
+    setValue(name, chips)
+  }, [chips])
+
+    // Function to handle user input when chips are added
+    const handleKeyDown = (event) => {
+      // Check if user presses "Enter" or ","
+      if (event.key === "Enter" || event.key === ",") {
+        // Prevent the default behavior of the event
+        event.preventDefault()
+        // Get the input value and remove any leading/trailing spaces
+        const chipValue = event.target.value.trim()
+        // Check if the input value exists and is not already in the chips array
+        if (chipValue && !chips.includes(chipValue)) {
+          // Add the chip to the array and clear the input
+          const newChips = [...chips, chipValue]
+          setChips(newChips)
+          event.target.value = ""
+        }
+      }
+    }
+  
+    // Function to handle deletion of a chip
+    const handleDeleteChip = (chipIndex) => {
+      // Filter the chips array to remove the chip with the given index
+      const newChips = chips.filter((_, index) => index !== chipIndex)
+      setChips(newChips)
+    }
   
   return (
     <div>
@@ -42,7 +71,7 @@ export default function ChipInput( {
                 <button
                 type='button'
                 className='ml-2'
-                // onClick={}
+                onClick={() => handleDeleteChip(index)}
                 >
                    <MdClose className="text-sm" /> 
                 </button>
@@ -54,8 +83,12 @@ export default function ChipInput( {
         name={name} 
         type="text"
         placeholder={placeholder}
-        // onKeyDown={}
-        className='w-full' />
+        onKeyDown={handleKeyDown}
+        style={{
+          boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+        }}
+        className="w-full rounded-[0.5rem] bg-richblack-700 p-[12px] text-richblack-5 outline-none"
+         />
       </div>
       {/* Render an error message if the input is required and not filled  */}
       {
