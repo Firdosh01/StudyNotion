@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { MdClose } from "react-icons/md"
 
 export default function ChipInput( {
-    lable,
+    label,
     name,
     placeholder,
     register,
@@ -57,8 +57,8 @@ export default function ChipInput( {
   
   return (
     <div>
-      <label htmlFor={name}>
-        {lable} <sup className='text-pink-200'>*</sup>
+      <label htmlFor={name} className='text-sm text-richblack-5'>
+        {label} <sup className='text-pink-200'>*</sup>
       </label>
       <div>
         {chips.map((chip, index) => (
@@ -93,8 +93,8 @@ export default function ChipInput( {
       {/* Render an error message if the input is required and not filled  */}
       {
         errors[name] && (
-            <span className='text-pink-200'>
-                {lable} is required
+            <span className='ml-2 text-xs tracking-wide text-pink-200'>
+                {label} is required
             </span>
         )
       }

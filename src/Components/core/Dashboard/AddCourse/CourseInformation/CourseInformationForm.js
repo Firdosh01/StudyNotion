@@ -13,6 +13,7 @@ import { setCourse, setStep } from '../../../../../slice/courseSlice'
 import IconBtn from "../../../../common/iconBtn"
 import ChipInput from './ChipInput'
 import { COURSE_STATUS } from '../../../../../utils/constants'
+import RequirementsField from './RequirementsField'
 
 
 export default function CourseInformationForm() {
@@ -304,14 +305,14 @@ export default function CourseInformationForm() {
                 )}
              </div>
              
-             {/* <RequirementsField
+             <RequirementsField
              name="courseRequirements"
              label="Requirements/Instructions"
              register={register}
              setValue={setValue}
              errors={errors}
              getValues={getValues}
-             /> */}
+             />
 
              {/* Next Button  */}
              <div>
