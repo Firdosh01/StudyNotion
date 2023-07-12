@@ -34,27 +34,29 @@ export default function CourseInformationForm() {
 
 
     useEffect(() => {
-        const getCategories = async () => {
-            setLoading(true)
-            const categories = await fetchCourseCategories()
-            if(categories.lenth > 0) {
-                setCourseCategories(categories)
-            }
-            setLoading(false)
+      const getCategories = async () => {
+        setLoading(true)
+        const categories = await fetchCourseCategories()
+        if (categories.length > 0) {
+          setCourseCategories(categories)
         }
-
-        if (editCourse) {
-            // console.log("data populated", editCourse)
-            setValue("courseTitle", course.courseName)
-            setValue("courseShortDesc", course.courseDescription)
-            setValue("coursePrice", course.price)
-            setValue("courseTags", course.tag)
-            setValue("courseBenefits", course.whatYouWillLearn)
-            setValue("courseCategory", course.category)
-            setValue("courseRequirements", course.instructions)
-            setValue("courseImage", course.thumbnail)
-          }
-          getCategories()
+        setLoading(false)
+      }
+      
+      // if form is in edit mode
+      if (editCourse) {
+        // console.log("data populated", editCourse)
+        setValue("courseTitle", course.courseName)
+        setValue("courseShortDesc", course.courseDescription)
+        setValue("coursePrice", course.price)
+        setValue("courseTags", course.tag)
+        setValue("courseBenefits", course.whatYouWillLearn)
+        setValue("courseCategory", course.category)
+        setValue("courseRequirements", course.instructions)
+        setValue("courseImage", course.thumbnail)
+      }
+      getCategories()
+  
     }, [])
 
     const isFormUpdated = () => {
@@ -62,7 +64,7 @@ export default function CourseInformationForm() {
 
         if(
             currentValues.courseTitle !== course.courseName ||
-            currentValues.courseDescription !== course.courseDescription ||
+            currentValues.courseShortDesc !== course.courseDescription ||
             currentValues.coursePrice !== course.price ||
             currentValues.courseTags.toString() !== course.tag.toString() ||
             currentValues.courseBenefits !== course.whatYouWillLearn ||
