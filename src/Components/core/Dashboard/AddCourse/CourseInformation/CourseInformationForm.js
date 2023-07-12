@@ -14,6 +14,7 @@ import IconBtn from "../../../../common/iconBtn"
 import ChipInput from './ChipInput'
 import { COURSE_STATUS } from '../../../../../utils/constants'
 import RequirementsField from './RequirementsField'
+import Upload from './Upload'
 
 
 export default function CourseInformationForm() {
@@ -277,14 +278,14 @@ export default function CourseInformationForm() {
              />
              {/* Course Thumnail Image  */}
              
-             {/* <Upload 
+             <Upload 
              name="courseImage"
              label="course Thumnail"
              register={register}
              setValue={setValue}
              error={errors}
              editData={editCourse ? course?.thumbnail : null}
-             /> */}
+             />
 
              {/* Benefits of the course  */}
              <div className='flex flex-col space-y-2'>
