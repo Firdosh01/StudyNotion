@@ -132,7 +132,7 @@ export const createSection = async (data, token) => {
   const toastId = toast.loading("Loading...")
   try {
     const response = await apiConnector("POST", CREATE_SECTION_API, data, {
-      Authorization: `Bearer ${token}`,
+      Authorization: `${token}`,
     })
     console.log("CREATE SECTION API RESPONSE............", response)
     if (!response?.data?.success) {
@@ -176,7 +176,7 @@ export const updateSection = async (data, token) => {
   const toastId = toast.loading("Loading...")
   try {
     const response = await apiConnector("POST", UPDATE_SECTION_API, data, {
-      Authorization: `Bearer ${token}`,
+      Authorization: `${token}`,
     })
     console.log("UPDATE SECTION API RESPONSE............", response)
     if (!response?.data?.success) {
