@@ -56,11 +56,11 @@ export default function ChipInput( {
     }
   
   return (
-    <div>
+    <di className="flex flex-col space-y-2">
       <label htmlFor={name} className='text-sm text-richblack-5'>
         {label} <sup className='text-pink-200'>*</sup>
       </label>
-      <div>
+      <div className='flex flex-wrap w-full gap-y-2'>
         {chips.map((chip, index) => (
             <div
             key={index}
@@ -98,6 +98,6 @@ export default function ChipInput( {
             </span>
         )
       }
-    </div>
+    </di>
   )
 }
