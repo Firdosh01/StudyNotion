@@ -19,14 +19,22 @@ exports.createCourse = async (req, res) => {
 			courseDescription,
 			whatYouWillLearn,
 			price,
-			tag,
+			tag: _tag,
 			category,
 			status,
-			instructions,
+            instructions: _instructions,
 		} = req.body;
 
 		// Get thumbnail image from request files
 		const thumbnail = req.files.thumbnailImage;
+
+		    // Convert the tag and instructions from stringified Array to Array
+			const tag = JSON.parse(_tag)
+			const instructions = JSON.parse(_instructions)
+		
+			console.log("tag", tag)
+			console.log("instructions", instructions)
+
 
 		// Check if any of the required fields are missing
 		if (
@@ -34,9 +42,10 @@ exports.createCourse = async (req, res) => {
 			!courseDescription ||
 			!whatYouWillLearn ||
 			!price ||
-			!tag ||
+			!tag.length ||
 			!thumbnail ||
-			!category
+			!category ||
+			!instructions.length
 		) {
 			return res.status(400).json({
 				success: false,
@@ -71,7 +80,7 @@ exports.createCourse = async (req, res) => {
 			thumbnail,
 			process.env.FOLDER_NAME
 		);
-		console.log(thumbnailImage);
+		// console.log(thumbnailImage);
 		// Create a new course with the given details
 		const newCourse = await Course.create({
 			courseName,
@@ -79,11 +88,11 @@ exports.createCourse = async (req, res) => {
 			instructor: instructorDetails._id,
 			whatYouWillLearn: whatYouWillLearn,
 			price,
-			tag: tag,
+			tag,
 			category: categoryDetails._id,
 			thumbnail: thumbnailImage.secure_url,
 			status: status,
-			instructions: instructions,
+			instructions,
 		});
 
 		// Add the new course to the User Schema of the Instructor
@@ -99,7 +108,7 @@ exports.createCourse = async (req, res) => {
 			{ new: true }
 		);
 		// Add the new course to the Categories
-		await Category.findByIdAndUpdate(
+        	const categoryDetails2 = await Category.findByIdAndUpdate(
 			{ _id: category },
 			{
 				$push: {
@@ -198,7 +207,7 @@ exports.editCourse = async (req, res) => {
 exports.getAllCourses = async (req, res) => {
     try{
         const allCourses = await Course.find(
-			{},
+			{ status: "Published" },
 			{
 				courseName: true,
 				price: true,
@@ -243,7 +252,7 @@ exports.getCourseDetails = async (req, res) => {
 				}
 		)
 		.populate("category")
-		//.populate("ratingAndreviews")
+		.populate("ratingAndreviews")
 		.populate({
 			path:"courseContent",
 			populate:{
