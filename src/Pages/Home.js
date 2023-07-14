@@ -120,7 +120,7 @@ function Home() {
                 active: false,
               }
             }
-            codeblock={`<!DOCTYPE html>\n<html>\nhead><title>Example</title><linkrel="stylesheet"href="styles.css">\n/head>\nbody>\nh1><ahref="/">Header</a>\n/h1>\nnav><ahref="one/">One</a><ahref="two/">Two</\na><ahref="three/">Three</a>\n/nav>`}
+            codeblock={`import React from "react";\n import CTAButton from "./Button";\nimport TypeAnimation from "react-type";\nimport { FaArrowRight } from "react-icons/fa";\n\nconst Home = () => {\nreturn (\n<div>Home</div>\n)\n}\nexport default Home;`}
             codeColor={"text-yellow-25"}
             backgroundGradient={<div className="absolute codeblock2"></div>}
           />
@@ -132,7 +132,7 @@ function Home() {
       {/* Section 2 */}
       
       <div className='bg-pure-greys-5 text-richblack-700'>
-        <div className='homepage_bg h-[310px]'>
+        <div className='homepage_bg h-[310px] mt-8'>
           <div className='flex flex-col items-center justify-between w-11/12 gap-5 mx-auto max-w-maxContent'>
             <div className='h-[150px]'></div>
             <div className='flex flex-row text-white gap-7'>

@@ -10,7 +10,7 @@ function InstructorSection() {
       <div className='flex flex-col-reverse items-center gap-20 md:flex-row'>
 
         <div className='lg:w-[50%] w-[90%]'>
-            <img src={Instructor} alt="" />            
+            <img src={Instructor} alt="" className='shadow-white shadow-[-20px_-20px_0_0]' />            
         </div>
         
         <div className='lg:w-[50%] flex flex-col gap-10'>
