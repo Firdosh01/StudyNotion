@@ -14,6 +14,7 @@ import { toast } from "react-hot-toast"
 import { IoAddCircleOutline } from "react-icons/io5"
 import { MdNavigateNext } from "react-icons/md"
 import IconBtn from '../../../../common/iconBtn'
+import NestedView from './NestedView'
 
 export default function CourseBuilderForm() {
 
@@ -142,7 +143,7 @@ return (
             </div>
         </form>
         {course.courseContent.length > 0 && (
-            <p>Additional details</p>
+            <NestedView handleChangeEditSectionName = {handleChangeEditSectionName} />
         )}
 
         <div className="flex justify-end gap-x-3">
