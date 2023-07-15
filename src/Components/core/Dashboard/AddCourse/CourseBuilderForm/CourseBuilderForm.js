@@ -98,11 +98,11 @@ const goBack = () => {
 
 
 return (
-    <div>
+    <div className='p-5 border rounded-lg bg-richblack-800 border-richblack-400'>
         <p className='text-2xl font-semibold text-richblack-5'>Course Builder</p>
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className='flex flex-col space-y-2'>
-                <label htmlFor="sectionName" className="text-sm text-richblack-5">
+                <label htmlFor="sectionName" className="mt-5 text-sm text-richblack-5">
                     Section Name <sup className="text-pink-200">*</sup>
                 </label>
                 <input id='sectionName'
@@ -122,7 +122,7 @@ return (
                     )
                 }
             </div>
-            <div className="flex items-end gap-x-4">
+            <div className="flex items-end mt-5 gap-x-4">
                 <IconBtn
                     type="submit"
                     disabled={loading}
@@ -146,7 +146,7 @@ return (
             <NestedView handleChangeEditSectionName = {handleChangeEditSectionName} />
         )}
 
-        <div className="flex justify-end gap-x-3">
+        <div className="flex justify-end mt-5 gap-x-3">
             <button
                 onClick={goBack}
                 className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900`}

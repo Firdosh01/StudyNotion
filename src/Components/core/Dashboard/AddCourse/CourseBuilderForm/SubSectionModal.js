@@ -117,9 +117,9 @@ export default function SubSectionModal({
     
     
     return (
-        <div>
-            <div>
-                <div>
+        <div className='fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm '>
+            <div className='my-8 w-11/12 max-w-[650px] bg-richblack-800 border border-richblack-400 rounded-lg'>
+                <div className='flex justify-between p-5 rounded-t-lg bg-richblack-700'>
                     <p className='text-xl font-semibold text-richblack-5'>
                         {view && "Viewing"} {add && "Adding"} {edit && "Editing"} Lecture
                     </p>
