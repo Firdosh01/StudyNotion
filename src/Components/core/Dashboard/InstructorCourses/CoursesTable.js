@@ -32,7 +32,7 @@ export default function CoursesTable( {courses, setCourses} ) {
   }
   return (
     <>
-    <Table className="border rounded-xl border-richblack-800">
+    <Table className="w-full mt-10 border rounded-xl border-richblack-800 ">
       <Thead>
         <Tr className="flex px-6 py-2 border-b rounded-t-md gap-x-10 border-b-richblack-800">
           <Th className="flex-1 text-sm font-medium text-left uppercase text-richblack-100">
@@ -105,6 +105,7 @@ export default function CoursesTable( {courses, setCourses} ) {
                 {course.price}
               </Td>
               <Td className="text-sm font-medium text-richblack-100">
+                
                 <button
                 disabled={loading}
                 onClick={() => {
