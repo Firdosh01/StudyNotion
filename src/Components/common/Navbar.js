@@ -9,18 +9,7 @@ import ProfileDropdown from '../core/Auth/ProfileDropDown'
 import { useState, useEffect } from 'react'
 import { apiConnector } from '../../services/apiconnector'
 import { categories } from '../../services/apis'
-
-const subLinks = [
-    {
-        title: "python",
-        link:"/catalog/python"
-    },
-    {
-        title: "web dev",
-        link:"/catalog/web-development"
-    },
-];
-
+import { ACCOUNT_TYPE } from '../../utils/constants'
 
 function Navbar() {
     
@@ -29,27 +18,28 @@ function Navbar() {
     const {totalItems} = useSelector( (state) => state.cart)
     const location = useLocation()
     
-    const [ssubLinks, setSsubLinks]  = useState([]);
+    const [subLinks, setSubLinks]  = useState([]);
+    const [loading, setLoading] = useState(false)
 
-    const fetchSublinks = async() => {
-        try{
-            const result = await apiConnector("GET", categories.CATEGORIES_API);
-            console.log("Printing Sublinks result:" , result);
-            setSsubLinks(result.data.data);
-        }
-        catch(error) {
-            console.log("Could not fetch the category list");
-        }
-    }
-
-    useEffect( () => {
-        console.log("PRINTING TOKEN", token);
-        fetchSublinks();
-    },[] )
+    useEffect(() => {
+        ;(async () => {
+          setLoading(true)
+          try {
+            const res = await apiConnector("GET", categories.CATEGORIES_API)
+            setSubLinks(res.data.data)
+            console.log(subLinks)
+          } catch (error) {
+            console.log("Could not fetch Categories.", error)
+          }
+          setLoading(false)
+        })()
+      }, [])
     
-    const matchRoute = (route) => {
-        return matchPath({path:route}, location.pathname)
-    }
+      // console.log("sub links", subLinks)
+    
+      const matchRoute = (route) => {
+        return matchPath({ path: route }, location.pathname)
+      }
     
   return (
     <div className='flex items-center justify-center border-b-[1px] border-b-richblack-700 h-14'>
@@ -61,14 +51,14 @@ function Navbar() {
         </Link>
 
         {/* Nav links */}
-        <nav>
+        <nav className='hidden md:block'>
         <ul className='flex gap-x-6 text-richblack-25'>
         {
             NavbarLinks.map( (link, index) => (
                  <li key={index}>
                     {
                         link.title === "Catalog" ? (
-                            <div className='relative flex items-center gap-2 group '>
+                            <div className={`relative flex items-center gap-2 cursor-pointer group ${matchRoute("/catalog/:catalogName") ? "text-yellow-25" : "text-richblack-25"}`}>
                                 <p>{link.title}</p>
                                 <AiOutlineDown />
 
@@ -85,13 +75,30 @@ function Navbar() {
                                 </div>
 
                                 {
+                                    loading ? (
+                                        <p>Loading....</p>
+                                    ) :
                                     subLinks.length ? (
-                                            subLinks.map( (subLink, index) => (
-                                                <Link to={`${subLink.link}`} key={index}>
-                                                    <p className='px-3 py-4 rounded hover:bg-richblue-50'>{subLink.title}</p>
-                                                </Link>
-                                            ) )
-                                    ) : (<div></div>)
+                                        <>
+                                        {subLinks
+                                          ?.filter(
+                                            (subLink) => subLink?.courses?.length > 0
+                                          )
+                                          ?.map((subLink, i) => (
+                                            <Link
+                                              to={`/catalog/${subLink.name
+                                                .split(" ")
+                                                .join("-")
+                                                .toLowerCase()}`}
+                                              className="py-4 pl-4 bg-transparent rounded-lg hover:bg-richblack-50"
+                                              key={i}
+                                            >
+                                              <p>{subLink.name}</p>
+                                              
+                                            </Link>
+                                          ))}
+                                      </>
+                                    ) : (<p className='text-center text-yellow-5'>No Courses Found</p>)
                                 }
 
                                 </div>
@@ -121,12 +128,12 @@ function Navbar() {
         <div className='flex items-center gap-x-4'>
                   
             {
-                user && user.accountType != "Instructor" && (
+                user && user.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
                     <Link to="/dashboard/cart" className='relative'>
                         <AiOutlineShoppingCart />
                         {
                             totalItems > 0 && (
-                                <span>
+                                <span className='absolute grid w-5 h-5 overflow-hidden text-xs font-bold text-center text-yellow-100 rounded-full -bottom-2 -right-2 place-items-center bg-richblack-600'>
                                     {totalItems}
                                 </span>
                             )
