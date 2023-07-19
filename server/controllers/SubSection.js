@@ -9,9 +9,11 @@ exports.createSubSection = async (req, res) => {
   try {
     // Extract necessary information from the request body
     const { sectionId, title, description } = req.body
+				/* { } */			
     const video = req.files.video
 
     // check if all necessary fields are provided 
+				/* { } */			
     if (!sectionId || !title || !description || !video) {
       return res.status(404).json({
         success: false,
@@ -21,6 +23,7 @@ exports.createSubSection = async (req, res) => {
     console.log(video)
 
     // Upload the video file to Cloudinary
+				/* { } */			
     const uploadDetails = await uploadImageToCloudinary(
       video,
       process.env.FOLDER_NAME
@@ -29,8 +32,10 @@ exports.createSubSection = async (req, res) => {
     // Create a new sub-section with the necessary information
     const SubSectionDetails = await SubSection.create({
       title: title,
+				/* { } */			
       timeDuration: `${uploadDetails.duration}`,
       description: description,
+				/* { } */			
       videoUrl: uploadDetails.secure_url,
     })
           // Update the corresponding section with the newly created sub-section
@@ -39,8 +44,8 @@ exports.createSubSection = async (req, res) => {
             { $push: { subSection: SubSectionDetails._id } },
             { new: true }
           ).populate("subSection")
-                    
-        // Return the updated section in the response
+
+          // Return the updated section in the response
           return res.status(200).json({
             success: true,
            data: updatedSection 

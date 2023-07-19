@@ -26,6 +26,7 @@ exports.createCourse = async (req, res) => {
 		} = req.body;
 
 		// Get thumbnail image from request files
+				/* { } */			
 		const thumbnail = req.files.thumbnailImage;
 
 		    // Convert the tag and instructions from stringified Array to Array
@@ -75,7 +76,8 @@ exports.createCourse = async (req, res) => {
 				message: "Category Details Not Found",
 			});
 		}
-		// Upload the Thumbnail to Cloudinary
+		// Upload the Thumbnail to Cloudinary 
+				/* { } */			
 		const thumbnailImage = await uploadImageToCloudinary(
 			thumbnail,
 			process.env.FOLDER_NAME
@@ -211,6 +213,7 @@ exports.getAllCourses = async (req, res) => {
 			{
 				courseName: true,
 				price: true,
+				/* { } */			
 				thumbnail: true,
 				instructor: true,
 				ratingAndReviews: true,
@@ -241,7 +244,7 @@ exports.getCourseDetails = async (req, res) => {
 		//get id
 		const {courseId} = res.body
 		//find course details
-		const courseDetail = await Course.find(
+		const courseDetails = await Course.find(
 			{_id:courseId})
 			.populate(
 				{
@@ -256,24 +259,38 @@ exports.getCourseDetails = async (req, res) => {
 		.populate({
 			path:"courseContent",
 			populate:{
-				path:"subSection",
+				path:"subSection",	
+				select: "-videoUrl",
 			},
 		})
 		.exec();
 
 		//validation
-		if(!courseDetail){
+		if(!courseDetails){
 			return res.status(400).json({
 				success: true,
 				message:`Could not find the course with ${courseId}`,
 			});
 		}
 
+		let totalDurationInSeconds = 0
+		courseDetails.courseContent.forEach((content) => {
+		  content.subSection.forEach((subSection) => {
+			const timeDurationInSeconds = parseInt(subSection.timeDuration)
+			totalDurationInSeconds += timeDurationInSeconds
+		  })
+		})
+	
+		const totalDuration = convertSecondsToDuration(totalDurationInSeconds)
+
 		//return response
 		return res.status(200).json({
 			success:true,
-			message: "Course Details fetched successfully",
-			data: courseDetail,
+			// message: "Course Details fetched successfully",
+			data: {
+				    courseDetails,
+					totalDuration,
+			}
 		})
 	}
 	catch(error) {
@@ -397,14 +414,14 @@ exports.deleteCourse = async (req, res) => {
 	  }
   
 	  // Unenroll students from the course
-	  const studentsEnrolled = course.studentsEnroled
+	    const studentsEnrolled = course.studentsEnrolled
 	  for (const studentId of studentsEnrolled) {
 		await User.findByIdAndUpdate(studentId, {
 		  $pull: { courses: courseId },
 		})
 	  }
-  
-	  // Delete sections and sub-sections
+     
+	  //   Delete sections and sub-sections
 	  const courseSections = course.courseContent
 	  for (const sectionId of courseSections) {
 		// Delete sub-sections of the section
