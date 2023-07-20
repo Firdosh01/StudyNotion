@@ -93,16 +93,16 @@ export default function Catalog() {
           </div>
           
           {/* Section 2 */}
-          <div>
-            <div>Top Courses in {catalogPageData?.data?.selectedCategory?.name} </div>
-            <div>
+          <div className='box-content w-full px-4 py-12 mx-auto max-w-maxContentTab lg:max-w-maxContent'>
+            <div className='section_heading'>Top Courses in {catalogPageData?.data?.selectedCategory?.name} </div>
+            <div className='py-8'>
               <CourseSlider Courses={catalogPageData?.data?.selectedCategory?.courses} />
             </div>
           </div>
 
           {/* Section 3 */}
-          <div>
-            <div>Freequently Bought</div>
+          <div className='box-content w-full px-4 py-12 mx-auto max-w-maxContentTab lg:max-w-maxContent'>
+            <div className='section_heading'>Freequently Bought</div>
             <div className='py-8'>
               <div className='grid grid-cols-1 lg:grid-cols-2'>
                 {

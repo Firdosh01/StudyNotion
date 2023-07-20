@@ -149,3 +149,6 @@
     filter: blur(34px);
     transform: matrix(1, 0, -0.03, 1, 0, 0);
   }
+  .section_heading {
+    @apply text-2xl font-bold text-richblack-5 lg:text-4xl;
+  }

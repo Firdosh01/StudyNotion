@@ -10,7 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
-    "cloudinary": "^1.37.1",
+    "cloudinary": "^1.37.3",
     "concurrently": "^8.2.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -38,6 +38,7 @@
     "react-super-responsive-table": "^5.2.1",
     "react-type-animation": "^3.0.1",
     "route": "^0.2.5",
+    "swiper": "^10.0.4",
     "video-react": "^0.16.0",
     "web-vitals": "^2.1.4"
   },
