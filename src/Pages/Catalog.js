@@ -5,10 +5,13 @@ import { categories } from '../services/apis';
 import { getCatalogPageData } from '../services/operations/pageAndComponentData';
 import CourseSlider from '../Components/core/Catalog/CourseSlider';
 import CoursesCard from '../Components/core/Catalog/CoursesCard';
+import { useSelector } from "react-redux"
+
 export default function Catalog() {
 
   const {catalogName} = useParams();
   const [catalogPageData,  setCatalogPageData] = useState(null)
+  const { loading } = useSelector((state) => state.profile)
   const [active, setActive] = useState(1)
   const [categoryId, setCategoryId] = useState("")
 
@@ -39,6 +42,14 @@ export default function Catalog() {
       }
       
   },[categoryId]);
+
+  if (loading || !catalogPageData) {
+    return (
+      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+        <div className="spinner"></div>
+      </div>
+    )
+  }
   
   return (
     <div className='text-white'>
