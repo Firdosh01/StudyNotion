@@ -23,6 +23,7 @@
     "otp-generator": "^4.0.1",
     "razorpay": "^2.8.6",
     "react": "^18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.44.3",
