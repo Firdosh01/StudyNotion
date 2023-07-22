@@ -171,8 +171,8 @@ export default function CourseDetails() {
         </div>
       </div>
 
-      <div>
-        <div>
+      <div className='mx-auto box-content px-4 text-start text-richblack-5 lg:w-[1260px]'>
+        <div className='mx-auto max-w-maxContentTab lg:mx-0 xl:max-w-[810px]'>
           {/* What will you learn section  */}
           <div className='p-8 my-8 border border-richblack-600'>
             <p className='text-3xl font-semibold'>

@@ -242,9 +242,9 @@ exports.getAllCourses = async (req, res) => {
 exports.getCourseDetails = async (req, res) => {
 	try{
 		//get id
-		const {courseId} = res.body
+		const {courseId} = req.body
 		//find course details
-		const courseDetails = await Course.find(
+		const courseDetails = await Course.findOne(
 			{_id:courseId})
 			.populate(
 				{
@@ -255,7 +255,7 @@ exports.getCourseDetails = async (req, res) => {
 				}
 		)
 		.populate("category")
-		.populate("ratingAndreviews")
+		.populate("ratingAndReviews")
 		.populate({
 			path:"courseContent",
 			populate:{
