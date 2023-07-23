@@ -25,7 +25,7 @@ exports.capturePayment = async (req, res) => {
     for(const course_id of courses) {
         let course;
         try{
-            course = await course.findById(course_id);
+            course = await Course.findById(course_id);
             if(!course) {
                 return res.status(200).json({
                     success: false,
@@ -44,7 +44,7 @@ exports.capturePayment = async (req, res) => {
         }
         catch(error) {
             console.log(error);
-            return status(500).json({
+            return res.status(500).json({
                 success: false,
                 message: error.message
             })

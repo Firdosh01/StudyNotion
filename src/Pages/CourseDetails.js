@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
 import { fetchCourseDetails } from '../services/operations/courseDetailsAPI'
 import { formatDate } from '../services/formatDate'
@@ -12,12 +12,16 @@ import Error from './Error'
 import ConfirmationModal from '../Components/common/ConfirmationModal'
 import CourseAccordionBar from '../Components/core/Course/CourseAccordionBar'
 import CourseDetailsCard from '../Components/core/Course/CourseDetailsCard'
+import { buyCourse } from '../services/operations/studentFeaturesAPI'
 
 export default function CourseDetails() {
 
   const { loading } = useSelector((state) => state.profile)
 
+  const {user} =  useSelector((state) => state.profile)
+  const {token} = useSelector((state) => state.auth)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   // Getting courseId from url parameter
   const { courseId } = useParams()
@@ -92,6 +96,10 @@ export default function CourseDetails() {
 
 
   const handleBuyCourse = () => {
+    if(token) {
+      buyCourse(token, [courseId], user, navigate, dispatch)
+      return 
+    }
     setConfirmationModal({
       text1: "You are not logged in!",
       text2: "Please login to Purchase Course.",
@@ -109,7 +117,7 @@ export default function CourseDetails() {
       <div className="relative w-full bg-richblack-800">
         <div className='box-content px-4 mx-auto lg:w-[1260px] 2xl:relative'>
           <div className='mx-auto grid min-h-[450px] max-w-maxContentTab justify-items-center py-8 lg:mx-0 lg:justify-items-start lg:py-0 xl:max-w-[810px]">'>
-            <div className='relative block'>
+            <div className='relative block max-h-[30rem] lg:hidden'>
               <div className='absolute bottom-0 left-0 w-full h-full shadow-[#161D29_0px_-64px_36px_-28px_inset] '></div>
               <img
                 src={thumbnail}
