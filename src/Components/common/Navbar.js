@@ -124,12 +124,12 @@ function Navbar() {
 
         {/* Login/Singup/Dashboard */}
 
-        <div className='flex items-center gap-x-4'>
+        <div className='items-center hidden md:flex gap-x-4'>
                   
             {
                 user && user.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
                     <Link to="/dashboard/cart" className='relative'>
-                        <AiOutlineShoppingCart />
+                        <AiOutlineShoppingCart className='text-2xl text-richblack-100' />
                         {
                             totalItems > 0 && (
                                 <span className='absolute grid w-5 h-5 overflow-hidden text-xs font-bold text-center text-yellow-100 rounded-full -bottom-2 -right-2 place-items-center bg-richblack-600'>

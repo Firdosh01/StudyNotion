@@ -13,14 +13,17 @@ export default function RenderCartCourses() {
         <div className='flex flex-col flex-1'>
             {
                 cart.map((course, index) => (
-                    <div>
-                        <div>
-                            <img src={course?.thumbnail} />
-                            <div>
-                                <p>{course?.courseName}</p>
-                                <p>{course?.category?.name}</p>
-                                <div>
-                                    <span>4.8</span>
+                    <div className={`flex flex-wrap items-start justify-between w-full gap-6 ${index !== cart.length - 1 && "border-b border-b-richblack-400 pb-6"} ${index !== 0 && "mt-6"}`}>
+                        <div className='flex flex-col flex-1 gap-4 xl:flex-row'>
+                            <img 
+                            src={course?.thumbnail}
+                            className='h-[148px] w-[220px] rounded-lg object-cover'
+                             />
+                            <div className='flex flex-col space-y-1'>
+                                <p className='text-lg font-medium text-richblack-5'>{course?.courseName}</p>
+                                <p className='text-sm text-richblack-300'>{course?.category?.name}</p>
+                                <div className='flex items-center gap-2'>
+                                    <span className='text-yellow-5'>4.8</span>
                                     <ReactStars
                                     count={5}
                                     size={20}
@@ -29,18 +32,19 @@ export default function RenderCartCourses() {
                                     emtpyIcon={<GiNinjaStar />}
                                     fullIcon={<GiNinjaStar />}
                                     color2={'#ffd700'} />
-                                   <span>{course?.ratingAndReviews.length} Ratings</span> 
+                                   <span className='text-richblack-400'>{course?.ratingAndReviews.length} Ratings</span> 
                                 </div>
                             </div>
                         </div>
-                        <div>
+                        <div className='flex flex-col items-end space-y-2'>
                             <button
                             onClick={() => dispatch(removeFromCart(course._id))}
+                            className="flex items-center gap-x-1 rounded-md border border-richblack-600 bg-richblack-700 py-3 px-[12px] text-pink-200"
                             >
                             {RiDeleteBin6Line}
                             <span>Remove</span>
                             </button>
-                            <p>{course?.price}</p>
+                            <p className='mb-6 text-3xl font-medium text-yellow-100'> ₹ {course?.price}</p>
                         </div>
                     </div>
                 ))
