@@ -134,7 +134,7 @@ export default function SubSectionModal({
                     className='px-8 py-10 space-y-8'
                 >
                     {/* Lecture Video Upload */}
-                    <Upload
+                    {/* <Upload
                         name="lectureVideo"
                         label="Lecture Video"
                         register={register}
@@ -143,7 +143,7 @@ export default function SubSectionModal({
                         video={true}
                         viewData={view ? modalData.videoUrl : null}
                         editData={edit ? modalData.videoUrl : null}
-                    />
+                    /> */}
                     {/* Lecture Title   */}
                     <div>
                         <label htmlFor="lectureTitle" className="text-sm text-richblack-5">
