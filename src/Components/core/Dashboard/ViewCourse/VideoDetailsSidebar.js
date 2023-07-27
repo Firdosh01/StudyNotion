@@ -53,11 +53,12 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                                     >
                                         <IoIosArrowBack size={30} />
                                     </div>
-                                    <IconBtn
+                                    <button onClick={() => setReviewModal(true)}>
+                                        <IconBtn
                                         text="Add Review"
                                         customClassess="ml-auto"
-                                        onClick={() => setReviewModal(true)}
                                     />
+                                    </button>
                                 </div>
                                 <div className='flex flex-col'>
                                     <p>{courseEntireData?.courseName}</p>
