@@ -10,6 +10,7 @@ import LearningLanguageSection from '../Components/core/HomePage/LearningLanguag
 import InstructorSection from '../Components/core/HomePage/InstructorSection'
 import Footer from '../Components/common/Footer'
 import ExploreMore from '../Components/core/HomePage/ExploreMore'
+import ReviewSlider from '../Components/common/ReviewSlider'
 
 
 function Home() {
@@ -184,13 +185,15 @@ function Home() {
 
       {/* Section 3 */}
 
-      <div className='flex flex-col items-center justify-center w-11/12 gap-8 mx-auto text-white max-w-maxContent first-letter bg-richblack-900'>
+      <div className='relative flex flex-col items-center justify-between w-11/12 gap-8 mx-auto my-20 text-white max-w-maxContent bg-richblack-900'>
         
         <InstructorSection />
 
         <h2 className='mt-10 text-4xl font-semibold text-center'>Reviews from other learners</h2>
         
         {/* Reviews Slider */}
+
+        <ReviewSlider />
         
       </div>
 
