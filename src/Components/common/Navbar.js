@@ -62,7 +62,7 @@ function Navbar() {
                                 <AiOutlineDown />
 
                                 <div className='invisible absolute left-[50%]
-                                    translate-x-[-50%] translate-y-[30%]
+                                    translate-x-[-50%] translate-y-[20%]
                                  top-[5%]
                                 flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900
                                 opacity-0 transition-all duration-200 group-hover:visible

@@ -13,7 +13,8 @@ function EnrolledCourses() {
     const getEnrolledCourses = async () => {
         try {
             const response = await getUserEnrolledCourses(token);
-            setEnrolledCourses(response)
+            const filterPublishCourse = response.filter((ele) => ele.status !== "Draft")
+            setEnrolledCourses(filterPublishCourse)
         }
         catch (error) {
             console.log("Unable to fetch Enrolled Courses");
