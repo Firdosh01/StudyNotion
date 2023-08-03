@@ -7,6 +7,7 @@ import "swiper/css"
 import "swiper/css/free-mode"
 import "swiper/css/pagination"
 import "../../App.css"
+import { Autoplay, FreeMode, Pagination } from "swiper/modules"
 // Icons
 import { FaStar } from "react-icons/fa"
 // Import required modules
@@ -37,12 +38,12 @@ export default function ReviewSlider() {
                         slidesPerView={4}
                         spaceBetween={250}
                         loop={true}
-                        // freeMode={true}
-                        // autoplay={{
-                        //     delay: 2500,
-                        //     disableOnInteraction: false,
-                        // }}
-                        // modules={[FreeMode, Pagination, Autoplay]}
+                        freeMode={true}
+                        autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        }}
+                        modules={[FreeMode, Pagination, Autoplay]}
                         className='w-full'
                     >
                         {reviews.map((review, i) => (
