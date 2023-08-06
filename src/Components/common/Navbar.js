@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react'
 import { apiConnector } from '../../services/apiconnector'
 import { categories } from '../../services/apis'
 import { ACCOUNT_TYPE } from '../../utils/constants'
+import { AiOutlineMenu } from "react-icons/ai";
 
 function Navbar() {
     
@@ -163,6 +164,10 @@ function Navbar() {
             }
                   
         </div>
+        
+        <button className="mr-4 md:hidden">
+          <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
+        </button>
       
       </div>
    

@@ -29,16 +29,16 @@ function ExploreMore() {
   return (
     <div>
       
-      <div className='my-10 text-4xl font-semibold text-center'>
+      <div className='text-4xl font-semibold text-center my-7'>
       Unlock the
       <HighlightText text={"Power of Code"} />
       </div>
 
-      <p className='mt-3 text-[16px] text-center text-richblack-300'>
+      <p className='mt-3 text-[16px] text-center text-richblack-300 mb-10'>
         Learn to Build Anything You Can Imagine
      </p>
 
-     <div className='flex flex-row px-1 py-1 mt-5 mb-5 rounded-full bg-richblack-800'>
+     <div className='hidden lg:flex gap-5 -mt-5 mx-auto w-max bg-richblack-800 text-richblack-200 p-1 rounded-full font-medium drop-shadow-[0_1.5px_rgba(255,255,255,0.25)]'>
         {
             tabsName.map(( element,index) => (
                 <div className={`text-[16px] flex flex-row items-center gap-2 
