@@ -117,8 +117,8 @@ export default function SubSectionModal({
     
     
     return (
-        <div className='fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm '>
-            <div className='my-8 w-11/12 max-w-[650px] bg-richblack-800 border border-richblack-400 rounded-lg'>
+        <div className='fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm h-screen w-screen'>
+            <div className='my-8 w-11/12 max-w-[670px] bg-richblack-800 border border-richblack-400 rounded-lg'>
                 <div className='flex justify-between p-5 rounded-t-lg bg-richblack-700'>
                     <p className='text-xl font-semibold text-richblack-5'>
                         {view && "Viewing"} {add && "Adding"} {edit && "Editing"} Lecture
@@ -134,7 +134,7 @@ export default function SubSectionModal({
                     className='px-8 py-10 space-y-8'
                 >
                     {/* Lecture Video Upload */}
-                    {/* <Upload
+                    <Upload
                         name="lectureVideo"
                         label="Lecture Video"
                         register={register}
@@ -143,7 +143,7 @@ export default function SubSectionModal({
                         video={true}
                         viewData={view ? modalData.videoUrl : null}
                         editData={edit ? modalData.videoUrl : null}
-                    /> */}
+                    />
                     {/* Lecture Title   */}
                     <div>
                         <label htmlFor="lectureTitle" className="text-sm text-richblack-5">
