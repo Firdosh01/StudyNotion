@@ -15,7 +15,7 @@ export default function CoursesCard({course, Hight}) {
   return (
     <div>
       <Link to={`/courses/${course._id}`}>
-      <div>
+      <div className='mr-6'>
         <div className='rounded-lg'>
             <img src={course.thumbnail} alt='course thumbnail' className={`${Hight} rounded-xl object-cover w-full`} />
         </div>

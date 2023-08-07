@@ -114,11 +114,12 @@ exports.createCourse = async (req, res) => {
 			{ _id: category },
 			{
 				$push: {
-					course: newCourse._id,
+					courses: newCourse._id,
 				},
 			},
 			{ new: true }
 		);
+		console.log("Hereee", categoryDetails2)
 		// Return the new course and a success message
 		res.status(200).json({
 			success: true,

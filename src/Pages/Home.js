@@ -19,7 +19,7 @@ function Home() {
 
       {/* Section 1 */}
 
-      <div className='relative flex flex-col items-center justify-between w-11/12 mx-auto text-white'>
+      <div className='relative flex flex-col items-center justify-between w-11/12 mx-auto text-white max-w-maxContent'>
         
         <Link to={"/signup"}>
 

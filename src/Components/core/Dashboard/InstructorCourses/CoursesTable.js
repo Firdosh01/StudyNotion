@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {Table, Th, Thead, Tr, Td, Tbody} from 'react-super-responsive-table'
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css"
 import { COURSE_STATUS } from '../../../../utils/constants'
 import { useNavigate } from 'react-router'
 import { deleteCourse, fetchInstructorCourses } from '../../../../services/operations/courseDetailsAPI'
@@ -60,9 +61,9 @@ export default function CoursesTable( {courses, setCourses} ) {
          (
           courses?.map((course) => (
             <Tr key={course._id}
-            className="flex px-6 py-8 border-b gap-x-10 border-richblack-800"
+            className="flex px-8 py-8 border-b gap-x-10 border-richblack-800"
             >
-              <Td>
+              <Td className='flex flex-1 gap-x-6'>
                 <img src={course?.thumbnail}
                 alt={course?.courseName}
                 className="h-[148px] w-[220px] rounded-lg object-cover"
@@ -102,10 +103,10 @@ export default function CoursesTable( {courses, setCourses} ) {
                 2h 30min
               </Td>
               <Td className="text-sm font-medium text-richblack-100">
-                {course.price}
+              ₹{course.price}
               </Td>
               <Td className="text-sm font-medium text-richblack-100">
-                
+                <div className='flex'>
                 <button
                 disabled={loading}
                 onClick={() => {
@@ -139,6 +140,7 @@ export default function CoursesTable( {courses, setCourses} ) {
                   >
                     <RiDeleteBin6Line size={20} />
                   </button>
+                  </div>
               </Td>
             </Tr>
           ))

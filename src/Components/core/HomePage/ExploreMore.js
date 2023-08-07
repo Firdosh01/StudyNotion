@@ -55,7 +55,7 @@ function ExploreMore() {
      <div className='lg:h-[200px] hidden lg:block '></div>
     {/* course card ka group  */}
     
-    <div className='flex flex-row flex-wrap justify-center w-full gap-10 lg:justify-between lg-gap-0 lg:absolute lg:bottom-[0] lg-left-[50%] lg:translate-x-[-20%] lg:translate-y-[50%] text-black lg:mb-0 mb-7 lg:px-0 px-3'>
+    <div className='flex flex-row flex-wrap justify-center w-full gap-10 lg:justify-between  lg:absolute lg:bottom-[0]  lg:translate-x-[-20%] lg:translate-y-[50%] text-black lg:mb-0 mb-7 lg:px-0 px-3 max-w-maxContent'>
         {
             courses.map((element,index) => (
                 <CourseCard
