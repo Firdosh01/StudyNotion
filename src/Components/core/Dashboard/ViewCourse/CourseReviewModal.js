@@ -18,7 +18,7 @@ export default function CourseReviewModal({setReviewModal}) {
     } = useForm()
 
     useEffect(() => {
-        setValue("courseExprience")
+        setValue("courseExprience", "")
         setValue("courseRating", 0)
     }, [])
 

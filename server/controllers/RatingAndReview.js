@@ -7,7 +7,7 @@ exports.createRating = async (req, res) => {
     try {
 
         // get user id
-        const userId = req.body.id;
+        const userId = req.user.id;
         //fetched from req body
         const { rating, review, courseId } = req.body;
         const courseDetail = await Course.findOne(

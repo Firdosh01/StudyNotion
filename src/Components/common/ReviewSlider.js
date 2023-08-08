@@ -48,7 +48,7 @@ export default function ReviewSlider() {
                     >
                         {reviews.map((review, i) => (
                             <SwiperSlide key={i}>
-                                <div className='flex flex-col gap-3 p-3 bg-richblack-800 text-[14px] text-richblack-25 w-[300px]'>
+                                <div className='flex flex-col gap-3  bg-richblack-800 text-[14px] text-richblack-25 w-[300px]'>
                                     <div className='flex items-center gap-4 p-2'>
                                         <img src={review?.user?.image
                                             ? review?.user?.image
@@ -66,14 +66,14 @@ export default function ReviewSlider() {
                                         </div>
                                     </div>
                                     <div className='ml-3'>
-                                        {/* <p className="font-medium text-richblack-25">
+                                        <p className="font-medium text-richblack-25">
                                         {review?.review.split(" ").length > truncateWords
                                             ? `${review?.review
                                                 .split(" ")
                                                 .slice(0, truncateWords)
                                                 .join(" ")} ...`
                                             : `${review?.review}`}
-                                    </p> */}
+                                    </p>
                                         <div className='flex items-center gap-2'>
                                             <h3 className='font-semibold text-yellow-100'>
                                                 {review.rating.toFixed(1)}

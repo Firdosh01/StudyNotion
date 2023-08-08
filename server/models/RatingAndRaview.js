@@ -11,7 +11,7 @@ const ratingAndReviewSchema = new mongoose.Schema({
         required: true,
     },
     review: {
-        type: Number,
+        type: String,
         required: true,
     },
     course: {

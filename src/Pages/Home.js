@@ -191,8 +191,8 @@ function Home() {
 
         <h2 className='mt-10 text-4xl font-semibold text-center'>Reviews from other learners</h2>
         
-        {/* Reviews Slider */}
-
+        {/* Reviews Slider */}  
+        
         <ReviewSlider />
         
       </div>
