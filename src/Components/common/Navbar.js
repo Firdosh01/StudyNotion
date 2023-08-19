@@ -11,6 +11,7 @@ import { apiConnector } from '../../services/apiconnector'
 import { categories } from '../../services/apis'
 import { ACCOUNT_TYPE } from '../../utils/constants'
 import { AiOutlineMenu } from "react-icons/ai";
+import { toast } from 'react-hot-toast'
 
 function Navbar() {
     
@@ -165,7 +166,9 @@ function Navbar() {
                   
         </div>
         
-        <button className="mr-4 md:hidden">
+        <button className="mr-3 md:hidden" onClick={() => {
+            toast.error("Please use desktop")
+        }}>
           <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
         </button>
       
