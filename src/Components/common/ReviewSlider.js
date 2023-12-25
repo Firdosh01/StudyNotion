@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , useMemo} from 'react'
 import { Swiper, SwiperSlide } from "swiper/react"
 import ReactStars from "react-rating-stars-component"
 
@@ -14,13 +14,13 @@ import { FaStar } from "react-icons/fa"
 import { apiConnector } from '../../services/apiconnector'
 import { ratingsEndpoints } from '../../services/apis'
 
-export default function ReviewSlider() {
+function ReviewSlider() {
 
     const [reviews, setReviews] = useState([])
     const truncateWords = 15
 
     useEffect(() => {
-        ; (async () => {
+        const fetchReviews = async () => {
             const { data } = await apiConnector(
                 "GET",
                 ratingsEndpoints.REVIEWS_DETAILS_API
@@ -28,8 +28,11 @@ export default function ReviewSlider() {
             if (data?.success) {
                 setReviews(data?.data)
             }
-        })()
+        }
+        fetchReviews()
     }, [])
+
+    const Reviews  = useMemo(() => reviews, [reviews])
     return (
         <>
             <div className='text-white'>
@@ -46,7 +49,7 @@ export default function ReviewSlider() {
                         modules={[FreeMode, Pagination, Autoplay]}
                         className='w-full'
                     >
-                        {reviews.map((review, i) => (
+                        {Reviews.map((review, i) => (
                             <SwiperSlide key={i}>
                                 <div className='flex flex-col gap-3  bg-richblack-800 text-[14px] text-richblack-25 w-[300px]'>
                                     <div className='flex items-center gap-4 p-2'>
@@ -98,3 +101,5 @@ export default function ReviewSlider() {
         </>
     )
 }
+
+export default ReviewSlider

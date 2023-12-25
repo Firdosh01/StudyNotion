@@ -1,32 +1,50 @@
 import './App.css';
+import { Suspense, lazy } from 'react';
 import Home from './Pages/Home';
-import { Route, Routes } from 'react-router-dom'
+import { Route, Router, Routes } from 'react-router-dom'
 import Navbar from './Components/common/Navbar';
 import OpenRoute from "./Components/core/Auth/OpenRoute"
 import Login from "./Pages/Login"
 import Signup from "./Pages/Signup"
 import Error from './Pages/Error';
-import About from './Pages/About';
+// import About from './Pages/About';
 import ForgotPassword from './Pages/ForgotPassword';
 import UpdatePassword from './Pages/UpdatePassword';
 import VerifyEmail from './Pages/VerifyEmail'
-import Contact from './Pages/Contact';
-import MyProfile from './Components/core/Dashboard/MyProfile';
-import Dashboard from './Pages/Dashboard';
+// import Contact from './Pages/Contact';
+// import MyProfile from './Components/core/Dashboard/MyProfile';
+// import Dashboard from './Pages/Dashboard';
 import PrivateRoute from './Components/core/Auth/PrivateRoute'
-import Settings from './Components/core/Dashboard/Settings/Settings';
-import EnrolledCourses from './Components/core/Dashboard/EnrolledCourses';
+// import Settings from './Components/core/Dashboard/Settings/Settings';
+// import EnrolledCourses from './Components/core/Dashboard/EnrolledCourses';
 import { ACCOUNT_TYPE } from './utils/constants';
-import Cart from './Components/core/Dashboard/Cart';
+// import Cart from './Components/core/Dashboard/Cart';
 import { useSelector } from 'react-redux';
-import MyCourses from './Components/core/Dashboard/MyCourses';
-import AddCourse from './Components/core/Dashboard/AddCourse';
-import EditCourse from './Components/core/Dashboard/EditCourse';
-import Catalog from './Pages/Catalog';
-import CourseDetails from './Pages/CourseDetails';
-import ViewCourse from './Pages/ViewCourse';
-import VideoDetails from './Components/core/Dashboard/ViewCourse/VideoDetails';
-import Instructor from './Components/core/Dashboard/InstructorDashboard/Instructor';
+// import MyCourses from './Components/core/Dashboard/MyCourses';
+// import AddCourse from './Components/core/Dashboard/AddCourse';
+// import EditCourse from './Components/core/Dashboard/EditCourse';
+// import Catalog from './Pages/Catalog';
+// import CourseDetails from './Pages/CourseDetails';
+// import ViewCourse from './Pages/ViewCourse';
+// import VideoDetails from './Components/core/Dashboard/ViewCourse/VideoDetails';
+// import Instructor from './Components/core/Dashboard/InstructorDashboard/Instructor';
+const About = lazy(() => import('./Pages/About'))
+const Contact = lazy(() => import("./Pages/Contact"))
+const MyProfile = lazy(() => import("./Components/core/Dashboard/MyProfile"))
+const Dashboard = lazy(() => import("./Pages/Dashboard"))
+const Settings = lazy(() => import("./Components/core/Dashboard/Settings/Settings"))
+const EnrolledCourses = lazy(() => import("./Components/core/Dashboard/EnrolledCourses"))
+const Cart = lazy(() => import("./Components/core/Dashboard/Cart"))
+const MyCourses = lazy(() => import("./Components/core/Dashboard/MyCourses"))
+const AddCourse = lazy(() => import("./Components/core/Dashboard/AddCourse"))
+const EditCourse = lazy(() => import("./Components/core/Dashboard/EditCourse"))
+const Catalog = lazy(() => import("./Pages/Catalog"))
+const CourseDetails = lazy(() => import("./Pages/CourseDetails"))
+const ViewCourse = lazy(() => import("./Pages/ViewCourse"))
+const VideoDetails = lazy(() => import("./Components/core/Dashboard/ViewCourse/VideoDetails"))
+const Instructor = lazy(() => import("./Components/core/Dashboard/InstructorDashboard/Instructor"))
+
+
 
 function App() {
 
@@ -35,6 +53,7 @@ function App() {
   return (
     <div className='flex flex-col w-screen min-h-screen bg-richblack-900 font-inter '>
       <Navbar />
+      <Suspense>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />
@@ -143,7 +162,9 @@ function App() {
       </Route>
 
         <Route path="*" element={<Error />} />
+              
       </Routes>
+      </Suspense>
     </div>
   );
 }

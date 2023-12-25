@@ -29,7 +29,7 @@ function LearningLanguageSection() {
         </div>
 
         <div className='w-fit'>
-          <CTAButton active={true} linkto={"/signup"}>
+          <CTAButton active={true} linkto={"/signup"} >
             <div>
               Learn More
             </div>

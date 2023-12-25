@@ -32,7 +32,6 @@ const timeline = [
         Description: "Code your way to a solution",
     },
 
-
 ]
 
 function TimelineSection() {

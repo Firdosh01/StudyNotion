@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { FaCheck } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
-import CourseInformationForm from './CourseInformation/CourseInformationForm'
-import CourseBuilderForm from './CourseBuilderForm/CourseBuilderForm'
-import PublishCourse from './PublishCourse'
+const CourseInformationForm = lazy(() => import("./CourseInformation/CourseInformationForm"))
+const CourseBuilderForm = lazy(() => import("./CourseBuilderForm/CourseBuilderForm"))
+const PublishCourse = lazy(() => import("./PublishCourse"))
+
 
 export default function RenderSteps() {
 
