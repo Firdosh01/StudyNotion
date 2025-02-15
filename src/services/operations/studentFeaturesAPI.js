@@ -48,24 +48,28 @@ export async function buyCourse(token, courses, userDetails, navigate, dispatch)
         console.log("PRINTING orderResponse", orderResponse);
         //options
         const options = {
-            key: process.env.RAZORPAY_KEY,
-            currency: orderResponse.data.message.currency,
-            amount: `${orderResponse.data.message.amount}`,
-            order_id: orderResponse.data.message.id,
-            name: "StudyNotion",
-            description: "Thank You for Purchasing the Course",
-            image: rzpLogo,
-            prefill: {
-                name: `${userDetails.firstName}`,
-                email: userDetails.email
-            },
-            handler: function (response) {
-                //send successful mail
-                sendPaymentSuccessEmail(response, orderResponse.data.message.amount, token);
-                //verifyPayment
-                verifyPayment({ ...response, courses }, token, navigate, dispatch);
-            }
-        }
+          key: process.env.RAZORPAY_KEY,
+          currency: orderResponse.data.message.currency,
+          amount: `${orderResponse.data.message.amount}`,
+          order_id: orderResponse.data.message.id,
+          name: "Coursenexus",
+          description: "Thank You for Purchasing the Course",
+          image: rzpLogo,
+          prefill: {
+            name: `${userDetails.firstName}`,
+            email: userDetails.email,
+          },
+          handler: function (response) {
+            //send successful mail
+            sendPaymentSuccessEmail(
+              response,
+              orderResponse.data.message.amount,
+              token
+            );
+            //verifyPayment
+            verifyPayment({ ...response, courses }, token, navigate, dispatch);
+          },
+        };
         const paymentObject = new window.Razorpay(options);
         paymentObject.open();
         paymentObject.on("payment.failed", function (response) {
